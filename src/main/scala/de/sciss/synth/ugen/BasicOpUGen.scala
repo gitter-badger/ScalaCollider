@@ -75,7 +75,7 @@ extends UGenSource.SingleOut( "MulAdd" ) {
 object UnaryOp {
    unop =>
 
-   import RichFloat._
+   import FloatFun._
 
    sealed abstract class Op( val id: Int ) extends Serializable {
       op =>
@@ -289,7 +289,7 @@ object BinaryOp {
       }
    }
 
-   import RichFloat._
+   import FloatFun._
 
    case object Plus           extends Op(  0 ) {
       override val name = "+"
