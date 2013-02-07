@@ -144,14 +144,4 @@ package object synth extends de.sciss.synth.LowPriorityImplicits /* with de.scis
 //   implicit def thunkToGraphFunction[ R <: Rate, /* S <: Rate,*/ T ]( thunk: => T )
 //      ( implicit view: T => Multi[ GE[ R ]] /*, r: RateOrder[ control, R, S ] */) = new GraphFunction[ R ]( thunk )
 
-   // Buffer convenience
-   def message[T]( msg: => Packet ) = Completion[T]( Some( _ => msg ), None )
-   def message[T]( msg: T => Packet ) = Completion[T]( Some( msg ), None )
-   def action[T]( action: => Unit ) = Completion[T]( None, Some( _ => action ))
-   def action[T]( action: T => Unit ) = Completion[T]( None, Some( action ))
-   def complete[T]( msg: => Packet, action: => Unit ) = Completion[T]( Some( _ => msg ), Some( _ => action ))
-   def complete[T]( msg: T => Packet, action: => Unit ) = Completion[T]( Some( msg ), Some( _ => action ))
-   def complete[T]( msg: => Packet, action: T => Unit ) = Completion[T]( Some( _ => msg ), Some( action ))
-   def complete[T]( msg: T => Packet, action: T => Unit ) = Completion[T]( Some( msg ), Some( action ))
-   implicit def messageToOption( msg: Packet ) : Option[ Packet ] = Some( msg )
 }
