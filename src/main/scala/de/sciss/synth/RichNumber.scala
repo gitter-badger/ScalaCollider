@@ -179,63 +179,63 @@ object RichNumber {
 
    // ---- Constant / GE ----
 
-   sealed trait NAryGEOps {
-//      import RichDouble._
-
-      protected def cn: Constant
-
-   //   private def binOp[ S <: Rate, T <: Rate ]( op: BinaryOp.Op, b: GE[ S ])
-   //                                            ( implicit r: MaybeRateOrder[ R, S, T ]) : GE[ T ] =
-   //      op.make[ R, S, T ]( /* r.getOrElse( this.rate, b.rate ), */ this, b )
-   //
-   //   def +[ S <: Rate, T <: Rate ]( b: GE[ S ])( implicit r: MaybeRateOrder[ R, S, T ]) = binOp( Plus, b )
-
-      // binary ops
-      def -( b: GE ) : GE          = cn.-( b )
-      def *( b: GE ) : GE          = cn.*( b )
-      def /( b: GE ) : GE          = cn./( b )
-      def %( b: GE ) : GE          = cn.%( b )
-      def ===( b: GE ) : GE        = cn.===( b )
-      def !==( b: GE ) : GE        = cn.!==( b )
-      def <( b: GE ) : GE          = cn.<( b )
-      def >( b: GE ) : GE          = cn.>( b )
-      def <=( b: GE ) : GE         = cn.<=( b )
-      def >=( b: GE ) : GE         = cn.>=( b )
-      def &( b: GE ) : GE          = cn.&( b )
-      def |( b: GE ) : GE          = cn.|( b )
-      def ^( b: GE ) : GE          = cn.^( b )
-      def round( b: GE ) : GE      = cn.round( b )
-      def roundup( b: GE ) : GE    = cn.roundup( b )
-      def trunc( b: GE ) : GE      = cn.trunc( b )
-      def atan2( b: GE ) : GE      = cn.atan2( b )
-      def hypot( b: GE ) : GE      = cn.hypot( b )
-      def hypotx( b: GE ) : GE     = cn.hypotx( b )
-      def pow( b: GE ) : GE        = cn.pow( b )
-      def ring1( b: GE ) : GE      = cn.ring1( b )
-      def ring2( b: GE ) : GE      = cn.ring2( b )
-      def ring3( b: GE ) : GE      = cn.ring3( b )
-      def ring4( b: GE ) : GE      = cn.ring4( b )
-      def difsqr( b: GE ) : GE     = cn.difsqr( b )
-      def sumsqr( b: GE ) : GE     = cn.sumsqr( b )
-      def sqrsum( b: GE ) : GE     = cn.sqrsum( b )
-      def sqrdif( b: GE ) : GE     = cn.sqrdif( b )
-      def absdif( b: GE ) : GE     = cn.absdif( b )
-      def thresh( b: GE ) : GE     = cn.thresh( b )
-      def amclip( b: GE ) : GE     = cn.amclip( b )
-      def scaleneg( b: GE ) : GE   = cn.scaleneg( b )
-      def clip2( b: GE ) : GE      = cn.clip2( b )
-      def excess( b: GE ) : GE     = cn.excess( b )
-      def fold2( b: GE ) : GE      = cn.fold2( b )
-      def wrap2( b: GE ) : GE      = cn.wrap2( b )
-   //   error( "CURRENTLY DISABLED IN SYNTHETIC UGENS BRANCH" )
-   //   def firstarg( b: GE ) : GE          = cn.firstarg( b )
-
-      def linlin( srcLo: GE, srcHi: GE, dstLo: GE, dstHi: GE ) =
-         cn.linlin( srcLo, srcHi, dstLo, dstHi )
-
-      def linexp( srcLo: GE, srcHi: GE, dstLo: GE, dstHi: GE ) =
-         cn.linexp( srcLo, srcHi, dstLo, dstHi )
-   }
+//   sealed trait NAryGEOps {
+////      import RichDouble._
+//
+//      protected def cn: Constant
+//
+//   //   private def binOp[ S <: Rate, T <: Rate ]( op: BinaryOp.Op, b: GE[ S ])
+//   //                                            ( implicit r: MaybeRateOrder[ R, S, T ]) : GE[ T ] =
+//   //      op.make[ R, S, T ]( /* r.getOrElse( this.rate, b.rate ), */ this, b )
+//   //
+//   //   def +[ S <: Rate, T <: Rate ]( b: GE[ S ])( implicit r: MaybeRateOrder[ R, S, T ]) = binOp( Plus, b )
+//
+//      // binary ops
+//      def -( b: GE ) : GE          = cn.-( b )
+//      def *( b: GE ) : GE          = cn.*( b )
+//      def /( b: GE ) : GE          = cn./( b )
+//      def %( b: GE ) : GE          = cn.%( b )
+//      def ===( b: GE ) : GE        = cn.===( b )
+//      def !==( b: GE ) : GE        = cn.!==( b )
+//      def <( b: GE ) : GE          = cn.<( b )
+//      def >( b: GE ) : GE          = cn.>( b )
+//      def <=( b: GE ) : GE         = cn.<=( b )
+//      def >=( b: GE ) : GE         = cn.>=( b )
+//      def &( b: GE ) : GE          = cn.&( b )
+//      def |( b: GE ) : GE          = cn.|( b )
+//      def ^( b: GE ) : GE          = cn.^( b )
+//      def round( b: GE ) : GE      = cn.round( b )
+//      def roundup( b: GE ) : GE    = cn.roundup( b )
+//      def trunc( b: GE ) : GE      = cn.trunc( b )
+//      def atan2( b: GE ) : GE      = cn.atan2( b )
+//      def hypot( b: GE ) : GE      = cn.hypot( b )
+//      def hypotx( b: GE ) : GE     = cn.hypotx( b )
+//      def pow( b: GE ) : GE        = cn.pow( b )
+//      def ring1( b: GE ) : GE      = cn.ring1( b )
+//      def ring2( b: GE ) : GE      = cn.ring2( b )
+//      def ring3( b: GE ) : GE      = cn.ring3( b )
+//      def ring4( b: GE ) : GE      = cn.ring4( b )
+//      def difsqr( b: GE ) : GE     = cn.difsqr( b )
+//      def sumsqr( b: GE ) : GE     = cn.sumsqr( b )
+//      def sqrsum( b: GE ) : GE     = cn.sqrsum( b )
+//      def sqrdif( b: GE ) : GE     = cn.sqrdif( b )
+//      def absdif( b: GE ) : GE     = cn.absdif( b )
+//      def thresh( b: GE ) : GE     = cn.thresh( b )
+//      def amclip( b: GE ) : GE     = cn.amclip( b )
+//      def scaleneg( b: GE ) : GE   = cn.scaleneg( b )
+//      def clip2( b: GE ) : GE      = cn.clip2( b )
+//      def excess( b: GE ) : GE     = cn.excess( b )
+//      def fold2( b: GE ) : GE      = cn.fold2( b )
+//      def wrap2( b: GE ) : GE      = cn.wrap2( b )
+//   //   error( "CURRENTLY DISABLED IN SYNTHETIC UGENS BRANCH" )
+//   //   def firstarg( b: GE ) : GE          = cn.firstarg( b )
+//
+//      def linlin( srcLo: GE, srcHi: GE, dstLo: GE, dstHi: GE ) =
+//         cn.linlin( srcLo, srcHi, dstLo, dstHi )
+//
+//      def linexp( srcLo: GE, srcHi: GE, dstLo: GE, dstHi: GE ) =
+//         cn.linexp( srcLo, srcHi, dstLo, dstHi )
+//   }
 
 //   sealed trait NAryGEOps2 extends NAryGEOps {
 //      def round( b: GE ) : GE   = cn.round( b )
@@ -259,7 +259,7 @@ object RichInt {
    @inline def ri_max( a: Int, b: Int ) : Int   = math.max( a, b )
 }
 final case class RichInt private[synth]( i: Int )
-extends RichNumber.UnaryFloatOps with RichNumber.NAryFloatOps with RichNumber.NAryDoubleOps with RichNumber.NAryGEOps {
+extends RichNumber.UnaryFloatOps with RichNumber.NAryFloatOps with RichNumber.NAryDoubleOps /* with RichNumber.NAryGEOps */ {
    import RichInt._
 
    protected def f  = i.toFloat
@@ -486,7 +486,7 @@ object RichFloat {
    }
 }
 final case class RichFloat private[synth]( protected val f: Float )
-extends RichNumber.UnaryFloatOps with RichNumber.NAryFloatOps with RichNumber.NAryDoubleOps with RichNumber.NAryGEOps {
+extends RichNumber.UnaryFloatOps with RichNumber.NAryFloatOps with RichNumber.NAryDoubleOps /* with RichNumber.NAryGEOps */ {
    import RichFloat._
 
    protected def d  = f.toDouble
@@ -693,7 +693,7 @@ object RichDouble {
 
 }
 final class RichDouble private[synth]( protected val d: Double )
-extends RichNumber.NAryDoubleOps with RichNumber.NAryGEOps {
+extends RichNumber.NAryDoubleOps /* with RichNumber.NAryGEOps */ {
    import RichDouble._
 
    protected def cn = Constant( d.toFloat )
