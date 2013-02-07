@@ -6,8 +6,6 @@ organization := "de.sciss"
 
 scalaVersion := "2.10.0"
 
-crossScalaVersions in ThisBuild := Seq( "2.10.0", "2.9.2" )
-
 description := "A sound synthesis library for the SuperCollider server"
 
 homepage := Some( url( "https://github.com/Sciss/ScalaCollider" ))
@@ -16,26 +14,22 @@ licenses := Seq( "GPL v2+" -> url( "http://www.gnu.org/licenses/gpl-2.0.txt" ))
 
 resolvers += "Sonatype OSS Releases" at "https://oss.sonatype.org/content/groups/public"
 
-libraryDependencies ++= Seq(
-   "de.sciss" %% "scalaosc" % "1.1.+",
-   "de.sciss" %% "scalaaudiofile" % "1.2.+",
-   ("org.scalatest" % "scalatest" % "1.8" cross CrossVersion.full) % "test"
-)
-
-libraryDependencies <++= scalaVersion { sv =>
-   sv match {
-      case "2.9.2" => Seq.empty
-      case _ => Seq( "org.scala-lang" % "scala-actors" % sv )
-   }
-}
+// libraryDependencies ++= Seq(
+//    "de.sciss" %% "scalaosc" % "1.1.+",
+//    "de.sciss" %% "scalaaudiofile" % "1.2.+",
+//    ("org.scalatest" % "scalatest" % "1.8" cross CrossVersion.full) % "test"
+// )
+//
+// libraryDependencies <++= scalaVersion { sv =>
+//    sv match {
+//       case "2.9.2" => Seq.empty
+//       case _ => Seq( "org.scala-lang" % "scala-actors" % sv )
+//    }
+// }
 
 retrieveManaged := true
 
 scalacOptions ++= Seq( "-deprecation", "-unchecked" )
-
-// ---- console ----
-
-initialCommands in console := """import de.sciss.osc; import de.sciss.synth.{ osc => sosc, _ }; import ugen._; import Predef.{any2stringadd => _}; import Ops._; var s: Server = null; def boot = Server.run( s = _ )"""
 
 // ---- build info ----
 
