@@ -1,6 +1,6 @@
 package de.sciss.synth
 
-object FloatFun {
+private[synth] object FloatFun {
    import DoubleFun.LOG2
 
    // -------- unary ops --------

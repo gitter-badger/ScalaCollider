@@ -1,6 +1,6 @@
 package de.sciss.synth
 
-object DoubleFun {
+private[synth] object DoubleFun {
   final val LOG2 = math.log(2)
 
    // -------- unary ops --------

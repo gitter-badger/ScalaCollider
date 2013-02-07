@@ -31,6 +31,7 @@ import collection.breakOut
 import collection.mutable.{Map => MMap, Buffer => MBuffer, Stack => MStack}
 import collection.immutable.{IndexedSeq => IIdxSeq, Set => ISet}
 import UGenGraph.RichUGen
+import ugen.ControlProxyLike
 
 private[synth] final class DefaultUGenGraphBuilder( graph: SynthGraph ) extends BasicUGenGraphBuilder {
    builder =>

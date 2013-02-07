@@ -28,6 +28,7 @@ package de.sciss.synth
 import collection.immutable.{IndexedSeq => IIdxSeq}
 import annotation.switch
 import runtime.ScalaRunTime
+import ugen.ControlProxyLike
 
 sealed trait UGen extends Product /* with MaybeIndividual */ {
    // ---- constructor ----

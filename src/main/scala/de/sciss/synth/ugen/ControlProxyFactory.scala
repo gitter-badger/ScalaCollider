@@ -24,10 +24,10 @@
  */
 
 package de.sciss.synth
+package ugen
 
 import collection.breakOut
 import collection.immutable.{IndexedSeq => IIdxSeq}
-import ugen.{ControlFactory, AudioControlProxy, ControlProxy, TrigControlProxy}
 
 object ControlProxyFactory {
    private val controlIrFactory = new ControlFactory( scalar )
