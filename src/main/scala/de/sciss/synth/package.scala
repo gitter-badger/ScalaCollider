@@ -154,15 +154,4 @@ package object synth extends de.sciss.synth.LowPriorityImplicits /* with de.scis
    def complete[T]( msg: => Packet, action: T => Unit ) = Completion[T]( Some( _ => msg ), Some( action ))
    def complete[T]( msg: T => Packet, action: T => Unit ) = Completion[T]( Some( msg ), Some( action ))
    implicit def messageToOption( msg: Packet ) : Option[ Packet ] = Some( msg )
-
-   // explicit methods
-
-   def play[ T : GraphFunction.Result ]( thunk: => T ) : Synth = play()( thunk )
-   // XXX TODO: fadeTime should be Optional[ Double ] not Option[ Float ]
-   def play[ T : GraphFunction.Result ]( target: Node = Server.default, outBus: Int = 0,
-             fadeTime: Option[ Float ] = Some( 0.02f ),
-             addAction: AddAction = addToHead )( thunk: => T ) : Synth = {
-      val fun = new GraphFunction[ T ]( thunk )
-      fun.play( target, outBus, fadeTime, addAction )
-   }
 }
